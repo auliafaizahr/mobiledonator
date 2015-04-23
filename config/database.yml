@@ -5,21 +5,29 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
+  encoding: utf8
   pool: 5
-  timeout: 5000
+  username: root
+  password: root
+  host: localhost
+  socket: /opt/lampp/var/mysql/mysql.sock
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+   <<: *default
+  database: mobiledonator_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: mobiledonator_test
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: mobiledonator 
+  encoding: utf8
+  min_messages: Warning
+  pool: 5
+  timeout: 5000
