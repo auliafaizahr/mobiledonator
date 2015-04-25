@@ -11,36 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423162427) do
+ActiveRecord::Schema.define(version: 20150425084117) do
 
-  create_table "barang_keluars", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "barangs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "dana_keluars", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "danas", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "donates", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "jumlah",     limit: 4
+    t.datetime "date_in"
   end
 
   create_table "donators", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "name",       limit: 255
+    t.text     "address",    limit: 65535
+    t.string   "phone",      limit: 255
+    t.string   "email",      limit: 255
+    t.string   "gender",     limit: 255
+    t.string   "job",        limit: 255
+    t.string   "token",      limit: 255
   end
 
-  create_table "jenis_barangs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "items", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "jumlah",     limit: 4
+    t.datetime "date_in"
+  end
+
+  create_table "out_donates", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "jumlah",     limit: 4
+    t.datetime "date_out"
+  end
+
+  create_table "out_items", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "jumlah",     limit: 4
+    t.datetime "date_out"
+  end
+
+  create_table "type_items", force: :cascade do |t|
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
   end
 
   create_table "users", force: :cascade do |t|
