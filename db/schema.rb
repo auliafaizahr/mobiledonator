@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425084117) do
+ActiveRecord::Schema.define(version: 20150425185340) do
 
   create_table "donates", force: :cascade do |t|
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "jumlah",     limit: 4
     t.datetime "date_in"
+    t.integer  "donator_id", limit: 4
   end
 
   create_table "donators", force: :cascade do |t|
@@ -33,10 +34,12 @@ ActiveRecord::Schema.define(version: 20150425084117) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "jumlah",     limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "jumlah",        limit: 4
     t.datetime "date_in"
+    t.integer  "donator_id",    limit: 4
+    t.integer  "type_items_id", limit: 4
   end
 
   create_table "out_donates", force: :cascade do |t|
@@ -47,10 +50,11 @@ ActiveRecord::Schema.define(version: 20150425084117) do
   end
 
   create_table "out_items", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "jumlah",     limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "jumlah",        limit: 4
     t.datetime "date_out"
+    t.integer  "type_items_id", limit: 4
   end
 
   create_table "type_items", force: :cascade do |t|
