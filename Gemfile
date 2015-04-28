@@ -56,7 +56,10 @@ group :development, :test do
 
   gem 'slim'
  
+  gem 'simple_form'
   gem 'bootstrap-sass', '~> 3.3.4'
+
+  gem 'responders', '~> 2.0'
 
 end
 
