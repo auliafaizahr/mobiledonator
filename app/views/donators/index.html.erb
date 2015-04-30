@@ -13,7 +13,7 @@
 	
 		
 			<tr>
-				<td> <%= donator.name %> </td>
+				<td> <%= link_to donator.name , donator_path(donator)  %> </td>
 				<td> <%= donator.email %> </td>				
 				<td> <%= link_to "Edit", edit_donator_path(donator) %> </td>				
 				<td> <%= link_to "Delete", donator_path(donator), method: :delete, data: {confirm: "Are you sure ?"} %> </td>				

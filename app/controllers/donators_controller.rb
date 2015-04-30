@@ -7,6 +7,7 @@ class DonatorsController < ApplicationController
 	end
 
 	def show
+		@donator = Donator.find(params[:id])
 		
 	end
 
@@ -59,6 +60,6 @@ class DonatorsController < ApplicationController
 		end
 
 		def donator_params
-			params.require(:donator).permit(:name, :email)
+			params.require(:donator).permit(:name, :address, :phone, :gender, :job ,:email)
 		end
 end
