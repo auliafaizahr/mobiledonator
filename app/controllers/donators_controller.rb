@@ -1,7 +1,5 @@
 class DonatorsController < ApplicationController
 
-
-
 	def index
 		@donators = Donator.all
 	end
