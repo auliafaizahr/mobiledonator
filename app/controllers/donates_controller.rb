@@ -1,5 +1,7 @@
 class DonatesController < ApplicationController
 
+	before_action :set_donate, only: [:show, :edit, :update, :destroy, :change]
+
 	def index
 		@donates = Donate.all
 		@donate = Donate.new
@@ -32,14 +34,15 @@ class DonatesController < ApplicationController
 	end
 
 	def destroy
-		
+		@donate.destroy
+		redirect_to root_path
 	end
 
 	private
 
-		# def set_donator
-		# 	@donator = Donator.find(params[:id])
-		# end
+		def set_donate
+		@donate = Donate.find(params[:id])
+		end
 
 		def donate_params
 			params.require(:donate).permit(:jumlah)

@@ -4,7 +4,8 @@
 			<tr>
 				<td>Tanggal Masuk</td>
 				<td>Jumlah</td>
-				<td colspan="3">Aksi</td>
+				<td>Donator</td>
+				<td colspan="4">Aksi</td>
 			
 
 			</tr>
@@ -13,7 +14,7 @@
 	
 		
 			<tr>
-				<td> <%= time_tag donate.created_at %> </d>
+				<td> <%= donate.created_at %> </d>
 				<td> <%= donate.jumlah %> </td>				
 				 <td> <%= link_to "Edit", edit_donate_path(donate) %> </td>				
 				<td> <%= link_to "Delete", donate_path(donate), method: :delete, data: {confirm: "Are you sure ?"} %> </td>			
